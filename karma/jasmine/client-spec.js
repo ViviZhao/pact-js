@@ -5,13 +5,12 @@
 
     var client, projectsProvider;
 
-    // ugly but works... guess would be good to bring jasmine-beforeAll
-    beforeEach(function() {
+    beforeAll(function() {
       client = example.createClient('http://localhost:1234');
       projectsProvider = Pact({ consumer: 'Karma Jasmine', provider: 'Hello' })
     });
 
-    afterEach(function (done) {
+    afterAll(function (done) {
       projectsProvider.finalize().then(function () { done() })
     });
 

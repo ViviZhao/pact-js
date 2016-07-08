@@ -16,9 +16,6 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // if you are using this example to setup your own project load pact from the node_modules directory
-      // i.e. node_modules/pact-consumer-js-dsl/dist/pact-consumer-js-dsl.js
-      './node_modules/es6-promise/dist/es6-promise.js',
       '../../dist/pact.web.js',
       'client.js',
       'client-spec.js'
@@ -48,6 +45,11 @@ module.exports = function (config) {
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
+
+    browserNoActivityTimeout: 30000,
+    browserDisconnectTolerance: 1,
+    captureTimeout: 120000,
+    browserDisconnectTimeout: 4000,
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
