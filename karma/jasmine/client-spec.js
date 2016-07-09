@@ -46,7 +46,7 @@
       });
     });
 
-    describe("findFriendsByAgeAndChildren", function () {
+    xdescribe("findFriendsByAgeAndChildren", function () {
 
       beforeEach(function (done) {
         //Add interaction
@@ -89,7 +89,7 @@
       });
     });
 
-    describe("unfriendMe", function () {
+    xdescribe("unfriendMe", function () {
 
       beforeEach(function (done) {
         //Add interaction
