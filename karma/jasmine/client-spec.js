@@ -8,9 +8,8 @@
     beforeAll(function(done) {
       client = example.createClient('http://localhost:1234')
       projectsProvider = Pact({ consumer: 'Karma Jasmine', provider: 'Hello' })
-      setTimeout(function () {
-        done()
-      }, 2000)
+      // required for slower Travis CI environment
+      setTimeout(function () { done() }, 2000)
     });
 
     afterAll(function (done) {

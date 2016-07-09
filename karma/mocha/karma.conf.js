@@ -12,7 +12,9 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai', 'pact'],
 
     // pact config
-    pact: {},
+    pact: {
+      port: 1234
+    },
 
     // list of files / patterns to load in the browser
     files: [
@@ -54,7 +56,7 @@ module.exports = function (config) {
     customLaunchers: {
       PhantomJS_without_security: {
         base: 'PhantomJS',
-        flags: ['--web-security=false']
+        flags: ['--web-security=no']
       }
     },
 
