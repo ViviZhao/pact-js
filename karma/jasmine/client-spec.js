@@ -5,9 +5,12 @@
 
     var client, projectsProvider;
 
-    beforeAll(function() {
+    beforeAll(function(done) {
       client = example.createClient('http://localhost:1234')
       projectsProvider = Pact({ consumer: 'Karma Jasmine', provider: 'Hello' })
+      setTimeout(function () {
+        done()
+      }, 2000)
     });
 
     afterAll(function (done) {
@@ -46,7 +49,7 @@
       });
     });
 
-    xdescribe("findFriendsByAgeAndChildren", function () {
+    describe("findFriendsByAgeAndChildren", function () {
 
       beforeEach(function (done) {
         //Add interaction
@@ -89,7 +92,7 @@
       });
     });
 
-    xdescribe("unfriendMe", function () {
+    describe("unfriendMe", function () {
 
       beforeEach(function (done) {
         //Add interaction

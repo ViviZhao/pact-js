@@ -55,7 +55,7 @@ module.exports = function (config) {
     customLaunchers: {
       PhantomJS_without_security: {
         base: 'PhantomJS',
-        flags: ['--web-security=false']
+        flags: ['--web-security=no']
       }
     },
 
