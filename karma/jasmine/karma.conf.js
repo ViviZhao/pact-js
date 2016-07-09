@@ -13,8 +13,7 @@ module.exports = function (config) {
 
     // pact config
     pact: {
-      port: 1234,
-      logLevel: 'debug'
+      port: 1234
     },
 
     // list of files / patterns to load in the browser

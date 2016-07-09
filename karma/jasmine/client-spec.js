@@ -6,12 +6,13 @@
     var client, projectsProvider;
 
     beforeAll(function() {
-      client = example.createClient('http://localhost:1234');
+      client = example.createClient('http://localhost:1234')
       projectsProvider = Pact({ consumer: 'Karma Jasmine', provider: 'Hello' })
     });
 
     afterAll(function (done) {
-      projectsProvider.finalize().then(function () { done() })
+      projectsProvider.finalize()
+        .then(function () { done() }, function (err) { done.fail(err) })
     });
 
     describe("sayHello", function () {
@@ -27,7 +28,8 @@
             headers: { "Content-Type": "application/json" },
             body: { reply: "Hello" }
           }
-        }).then(function () { done() });
+        })
+        .then(function () { done() }, function (err) { done.fail(err) })
       })
 
       it("should say hello", function(done) {
@@ -39,7 +41,7 @@
             done()
           })
           .catch(function (err) {
-            done(err)
+            done.fail(err)
           })
       });
     });
@@ -69,7 +71,8 @@
                 }, { min: 1 })
               }
             }
-          }).then(function () { done() });
+          })
+          .then(function () { done() }, function (err) { done.fail(err) })
       })
 
       it("should return some friends", function(done) {
@@ -81,7 +84,7 @@
             done()
           })
           .catch(function (err) {
-            done(err)
+            done.fail(err)
           })
       });
     });
@@ -102,7 +105,8 @@
             headers: { "Content-Type": "application/json" },
             body: { reply: "Bye" }
           }
-        }).then(function () { done() });
+        })
+        .then(function () { done() }, function (err) { done.fail(err) })
       })
 
       it("should unfriend me", function(done) {
@@ -114,7 +118,7 @@
             done()
           })
           .catch(function (err) {
-            done(err)
+            done.fail(err)
           })
       });
 
@@ -130,7 +134,8 @@
             willRespondWith: {
               status: 404
             }
-          }).then(function () { done() })
+          })
+          .then(function () { done() }, function (err) { done.fail(err) })
         })
 
         it("returns an error message", function (done) {
